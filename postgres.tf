@@ -26,6 +26,10 @@ resource "helm_release" "postgres" {
         resources = {
           requests = { cpu = "200m", memory = "256Mi" }
         }
+        service = {
+          type = "LoadBalancer"
+          port = 5432
+        }        
       }
       auth = {
         database = var.db_name
@@ -33,10 +37,6 @@ resource "helm_release" "postgres" {
         # use a user supplied password for now
         password = var.db_password
         # password = random_password.postgres.result
-      }
-      service = {
-        type = "LoadBalancer"
-        port = 5432
       }
     })
   ]
