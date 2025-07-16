@@ -41,5 +41,5 @@ resource "helm_release" "postgres" {
     })
   ]
 
-  depends_on = [google_container_cluster.autopilot]
+  depends_on = [google_container_cluster.default]
 }
