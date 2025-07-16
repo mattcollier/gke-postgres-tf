@@ -29,7 +29,7 @@ resource "helm_release" "postgres" {
         service = {
           type = "LoadBalancer"
           port = 5432
-        }        
+        }
       }
       auth = {
         database = var.db_name
