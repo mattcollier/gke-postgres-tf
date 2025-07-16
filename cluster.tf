@@ -62,6 +62,9 @@ resource "google_container_cluster" "default" {
   # Set `deletion_protection` to `true` will ensure that one cannot
   # accidentally delete this instance by use of Terraform.
   deletion_protection = false
+
+  # defined in apis.tf
+  depends_on = [google_project_service.services]
 }
 # [END gke_quickstart_autopilot_cluster]
 
