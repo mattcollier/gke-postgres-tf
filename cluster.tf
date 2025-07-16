@@ -67,7 +67,7 @@ resource "google_container_cluster" "default" {
 
 # provide kubernetes credentials to the helm provider
 provider "helm" {
-  kubernetes {
+  kubernetes = {
     host                   = google_container_cluster.default.endpoint
     cluster_ca_certificate = base64decode(google_container_cluster.default.master_auth[0].cluster_ca_certificate)
     token                  = data.google_client_config.current.access_token
