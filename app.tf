@@ -28,6 +28,7 @@ provider "kubernetes" {
   ]
 }
 
+/*
 resource "kubernetes_deployment_v1" "default" {
   metadata {
     name = "example-hello-app-deployment"
@@ -104,7 +105,9 @@ resource "kubernetes_deployment_v1" "default" {
     }
   }
 }
+*/
 
+/*
 resource "kubernetes_service_v1" "default" {
   metadata {
     name = "example-hello-app-loadbalancer"
@@ -130,6 +133,7 @@ resource "kubernetes_service_v1" "default" {
 
   depends_on = [time_sleep.wait_service_cleanup]
 }
+*/
 
 # Provide time for Service cleanup
 resource "time_sleep" "wait_service_cleanup" {
