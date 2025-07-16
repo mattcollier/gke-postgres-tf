@@ -1,0 +1,6 @@
+project_id = "my‑project‑id"
+region     = "us‑central1"
+
+# optional – override defaults
+db_name    = "demo"
+db_user    = "demo_user"

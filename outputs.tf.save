@@ -1,0 +1,11 @@
+output "postgres_service_ip" {
+  description = "Public IP address of the Postgres LoadBalancer"
+  value       = helm_release.postgres.status.load_balancer_ingress[0].ip
+}
+
+# NOTE: the newly generated Postgres Password is surfaced here. Use a secret manager instead!
+output "postgres_connection_string" {
+  description = "psql‑compatible connection string"
+  value       = "postgresql://${var.db_user}:${random_password.postgres.result}@${helm_release.postgres.status.load_balancer_ingress[0].ip}:${helm_release.postgres.values[0].service.port}/${var.db_name}"
+  sensitive   = true
+}
